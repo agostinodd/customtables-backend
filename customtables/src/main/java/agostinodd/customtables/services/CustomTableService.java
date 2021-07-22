@@ -30,17 +30,17 @@ public class CustomTableService implements ICustomTableService {
     }
 
     @Override
-    public CustomTable findStammdatenTableById(String id) {
-        return this.customTableRepository.findStammdatenTableById(id);
+    public CustomTable findCustomTableById(String id) {
+        return this.customTableRepository.findCustomTableById(id);
     }
 
     @Override
-    public void saveStammdatenTable(CustomTable customTable) {
+    public void saveCustomTable(CustomTable customTable) {
         this.customTableRepository.save(customTable);
     }
 
     @Override
-    public long deleteStammdatenTable(String id) {
+    public long deleteCustomTable(String id) {
         System.out.println(this.mongoTemplate.findAll(CustomTable.class));
         Query q = new Query();
         q.addCriteria(Criteria.where("_id").is(id));
@@ -48,7 +48,7 @@ public class CustomTableService implements ICustomTableService {
     }
 
     @Override
-    public CustomTable findStammdatenTableByOwnerMail(String ownerMail) {
+    public CustomTable findCustomTableByOwnerMail(String ownerMail) {
         return this.customTableRepository.findByOwnerMail(ownerMail);
     }
 

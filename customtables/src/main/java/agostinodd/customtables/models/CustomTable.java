@@ -16,5 +16,5 @@ public class CustomTable {
     private String id;
     private CustomSchema customSchema;
     private String ownerMail;
-    private ArrayList<CustomRow> customRows;
+    private ArrayList<CustomRow> customData;
 }

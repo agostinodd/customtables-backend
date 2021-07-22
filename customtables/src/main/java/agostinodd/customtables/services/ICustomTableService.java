@@ -9,9 +9,9 @@ public interface ICustomTableService {
 
     Mono<Map> findAll();
     Mono<Map> findByIdWithMono(String id);
-    CustomTable findStammdatenTableById(String id);
-    void saveStammdatenTable(CustomTable customTable);
-    long deleteStammdatenTable(String id);
+    CustomTable findCustomTableById(String id);
+    void saveCustomTable(CustomTable customTable);
+    long deleteCustomTable(String id);
 
-    CustomTable findStammdatenTableByOwnerMail(String ownerMail);
+    CustomTable findCustomTableByOwnerMail(String ownerMail);
 }

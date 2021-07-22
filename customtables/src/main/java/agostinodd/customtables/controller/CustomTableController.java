@@ -22,30 +22,30 @@ public class CustomTableController {
     @ResponseBody
     public CustomTable getCustomTable(@RequestBody Map ownerMail){
         System.out.println(ownerMail);
-        CustomTable result = this.customTableService.findStammdatenTableByOwnerMail(ownerMail.get("ownerMail").toString());
+        CustomTable result = this.customTableService.findCustomTableByOwnerMail(ownerMail.get("ownerMail").toString());
         return result;
     }
 
     @RequestMapping(value = "/tables-management/save", method = RequestMethod.POST)
     public CustomTable saveCustomTable(@RequestBody CustomTable customTable){
-        this.customTableService.saveStammdatenTable(customTable);
+        this.customTableService.saveCustomTable(customTable);
         return customTable;
     }
 
     @RequestMapping(value = "/tables-management/create", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity createCustomTable(@RequestBody CustomTable customTable){
-        if(this.customTableService.findStammdatenTableByOwnerMail(customTable.getOwnerMail()) != null) {
+        if(this.customTableService.findCustomTableByOwnerMail(customTable.getOwnerMail()) != null) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
-        this.customTableService.saveStammdatenTable(customTable);
+        this.customTableService.saveCustomTable(customTable);
         return new ResponseEntity(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/tables-management/exists", method = RequestMethod.POST)
     @ResponseBody
     public boolean existCustomTable(@RequestBody Map ownerMail){
-        CustomTable result = this.customTableService.findStammdatenTableByOwnerMail(ownerMail.get("ownerMail").toString());
+        CustomTable result = this.customTableService.findCustomTableByOwnerMail(ownerMail.get("ownerMail").toString());
         if(result != null){
             return true;
         } else {
@@ -55,7 +55,7 @@ public class CustomTableController {
 
     @RequestMapping(value = "/tables-management/delete", method = RequestMethod.POST)
     public HttpStatus deleteCustomTable(@RequestBody Map id){
-        this.customTableService.deleteStammdatenTable((String) id.get("id"));
+        this.customTableService.deleteCustomTable((String) id.get("id"));
         return HttpStatus.OK;
     }
 

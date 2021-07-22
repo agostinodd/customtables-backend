@@ -7,5 +7,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 public interface CustomTableRepository extends MongoRepository<CustomTable, String> {
 
     CustomTable findByOwnerMail(String ownerMail);
-    CustomTable findStammdatenTableById(String id);
+    CustomTable findCustomTableById(String id);
 }
